@@ -24,7 +24,12 @@ app.get('/asd', function(req, res) {
 	res.send('Hello world');
 });*/
 
+//middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+
 app.use('/', index);
+app.use('/api', tasks);
 
 app.listen(3000, function(err, res){
 	console.log('Server has been started');
